@@ -2,7 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-import filip.projekt.bands.Band;
+import filip.projekt.bands.bandCRUD.domain.Band;
 
 public class BandTest {
   @Test
