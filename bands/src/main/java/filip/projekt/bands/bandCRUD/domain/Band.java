@@ -1,6 +1,7 @@
-package filip.projekt.bands;
+package filip.projekt.bands.bandCRUD.domain;
 
 public class Band {
+  private int _Id;
   private String _Name;
   private String _Genre;
   private  int _NumberOfMembers;
@@ -28,6 +29,11 @@ public class Band {
 	* Returns value of _Name
 	* @return
 	*/
+  public int get_Id(){
+    return this._Id;
+  }
+
+
 	public String get_Name() {
 		return this._Name;
 	}
@@ -52,6 +58,11 @@ public class Band {
 	* Sets new value of _Name
 	* @param
 	*/
+  public void set_Id(int _Id){
+    this._Id = _Id;
+  }
+
+
 	public void set_Name(String _Name) {
 		this._Name = _Name;
 	}
@@ -82,8 +93,9 @@ public class Band {
 	/**
 	* Default Band constructor
 	*/
-	public Band(String _Name, String _Genre, int _NumberOfMembers) {
+	public Band(int _Id,String _Name, String _Genre, int _NumberOfMembers) {
 		super();
+    this._Id = _Id;
 		this._Name = _Name;
 		this._Genre = _Genre;
 		this._NumberOfMembers = _NumberOfMembers;
@@ -92,9 +104,6 @@ public class Band {
 
 
 
-	/**
-	* Create string representation of Band for printing
-	* @return
-	*/
+
 
 }
