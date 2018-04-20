@@ -1,9 +1,10 @@
 language: java
 script:
-- cd bands
-- cd scripts
-- ./server.sh &
-- sleep 1
-- cd ..
--mvn test
+ - cd bands
+ - cd scripts
+ - ./server.sh &
+ - sleep 1
+ - cd ..
+ - mvn test
+ - kill -a java
 
