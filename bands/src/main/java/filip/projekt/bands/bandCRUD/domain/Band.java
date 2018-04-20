@@ -1,24 +1,24 @@
 package filip.projekt.bands.bandCRUD.domain;
 
 public class Band {
-  private int _Id;
-  private String _Name;
-  private String _Genre;
-  private  int _NumberOfMembers;
+  private int Id;
+  private String Name;
+  private String Genre;
+  private  int NumberOfMembers;
 
 
   public String play(){
-    return _Name + "koncert został zagrany w" + _NumberOfMembers + "osób";
+    return Name + "koncert został zagrany w" + NumberOfMembers + "osób";
   }
 
   public int addMember(int i){
-    //set_NumberOfMembers(get_NumberOfMembers()+i);
-  return   _NumberOfMembers +=i;
+    //setNumberOfMembers(getNumberOfMembers()+i);
+  return   NumberOfMembers +=i;
   }
 
   public int removeMember(int i){
-    //set_NumberOfMembers(get_NumberOfMembers()-i);
-    return _NumberOfMembers-=i;
+    //setNumberOfMembers(getNumberOfMembers()-i);
+    return NumberOfMembers-=i;
   }
 
 
@@ -26,61 +26,61 @@ public class Band {
 
 
 	/**
-	* Returns value of _Name
+	* Returns value of Name
 	* @return
 	*/
-  public int get_Id(){
-    return this._Id;
+  public int getId(){
+    return this.Id;
   }
 
 
-	public String get_Name() {
-		return this._Name;
+	public String getName() {
+		return this.Name;
 	}
 
 	/**
-	* Returns value of _Genre
+	* Returns value of Genre
 	* @return
 	*/
-	public String get_Genre() {
-		return this._Genre;
+	public String getGenre() {
+		return this.Genre;
 	}
 
 	/**
-	* Returns value of _NumberOfMembers
+	* Returns value of NumberOfMembers
 	* @return
 	*/
-	public int get_NumberOfMembers() {
-		return this._NumberOfMembers;
+	public int getNumberOfMembers() {
+		return this.NumberOfMembers;
 	}
 
 	/**
-	* Sets new value of _Name
+	* Sets new value of Name
 	* @param
 	*/
-  public void set_Id(int _Id){
-    this._Id = _Id;
+  public void setId(int Id){
+    this.Id = Id;
   }
 
 
-	public void set_Name(String _Name) {
-		this._Name = _Name;
+	public void setName(String Name) {
+		this.Name = Name;
 	}
 
 	/**
-	* Sets new value of _Genre
+	* Sets new value of Genre
 	* @param
 	*/
-	public void set_Genre(String _Genre) {
-		this._Genre = _Genre;
+	public void setGenre(String Genre) {
+		this.Genre = Genre;
 	}
 
 	/**
-	* Sets new value of _NumberOfMembers
+	* Sets new value of NumberOfMembers
 	* @param
 	*/
-	public void set_NumberOfMembers(int _NumberOfMembers) {
-		this._NumberOfMembers = _NumberOfMembers;
+	public void setNumberOfMembers(int NumberOfMembers) {
+		this.NumberOfMembers = NumberOfMembers;
 	}
 
 	/**
@@ -93,13 +93,26 @@ public class Band {
 	/**
 	* Default Band constructor
 	*/
-	public Band(int _Id,String _Name, String _Genre, int _NumberOfMembers) {
+	public Band(String Name, String Genre, int NumberOfMembers) {
 		super();
-    this._Id = _Id;
-		this._Name = _Name;
-		this._Genre = _Genre;
-		this._NumberOfMembers = _NumberOfMembers;
+    
+		this.Name = Name;
+		this.Genre = Genre;
+		this.NumberOfMembers = NumberOfMembers;
 	}
+
+	public String toString(){
+		return "nazwa zespołu: " + this.Name + "\n" +
+		"gatunek muzyczny: " + this.Genre + "\n" +
+		"ilość członków: " + this.NumberOfMembers + "\n" + "\n";
+	}
+	@Override
+	public boolean equals(Object b){
+		return this.toString().equals(b.toString());
+
+	}
+
+
 
 
 
