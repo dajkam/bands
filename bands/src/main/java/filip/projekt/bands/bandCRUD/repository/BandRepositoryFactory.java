@@ -1,5 +1,6 @@
 package filip.projekt.bands.bandCRUD.repository;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,8 +8,11 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import filip.projekt.bands.bandCRUD.domain.Band;
 import  filip.projekt.bands.bandCRUD.repository.BandRepository;
+@Component
 public class BandRepositoryFactory implements BandRepository{
 
   private Connection con;
@@ -18,6 +22,7 @@ public class BandRepositoryFactory implements BandRepository{
   private PreparedStatement selectFromBandSt;
   private PreparedStatement updateBandSt;
   private PreparedStatement deleteAllSt;
+  public final static String url = "jdbc:hsqldb:hsql://localhost/workdb";
 
 
   public BandRepositoryFactory (Connection con) throws SQLException {
@@ -27,7 +32,9 @@ public class BandRepositoryFactory implements BandRepository{
 	}
 	this.setConnection(con);
   }
-  public BandRepositoryFactory() throws SQLException{}
+  public BandRepositoryFactory() throws SQLException{
+	this(DriverManager.getConnection(url));
+  }
 
 
 	private boolean isDataBaseReady() {
