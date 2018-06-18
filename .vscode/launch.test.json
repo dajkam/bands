@@ -1,0 +1,28 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "bands",
+                "projectName": "bands",
+                "workingDirectory": "/home/filip/Pulpit/tau/lab1/bands-rest/bands",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "bands",
+                "projectName": "bands",
+                "workingDirectory": "/home/filip/Pulpit/tau/lab1/bands-rest/bands",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
