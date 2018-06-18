@@ -19,5 +19,6 @@ public interface BandRepository {
   public int deleteFromBand(Band b);
   public int updateBand(Band b) throws SQLException;
   public int deleteAll();
+  
 
 }

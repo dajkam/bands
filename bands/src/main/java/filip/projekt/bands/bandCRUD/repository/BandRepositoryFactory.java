@@ -22,6 +22,7 @@ public class BandRepositoryFactory implements BandRepository{
   private PreparedStatement selectFromBandSt;
   private PreparedStatement updateBandSt;
   private PreparedStatement deleteAllSt;
+  private PreparedStatement searchBandSt;
   public final static String url = "jdbc:hsqldb:hsql://localhost/workdb";
 
 
@@ -71,6 +72,16 @@ public class BandRepositoryFactory implements BandRepository{
 		updateBandSt = con.prepareStatement("UPDATE Band SET Name=?,Genre=?,NumberOfMembers=?  WHERE Id=?");
 		deleteAllSt = con.prepareStatement("DELETE  FROM Band;");
 
+		searchBandSt = con.prepareStatement("SELECT * FROM Band WHERE Id=? OR Name=? OR NumberOfMembers=? OR Genre=? OR "
+		
+		+	"Name LIKE '%?%' OR Name LIKE '?%' OR Name LIKE '%?' OR "
+		
+		+	"Genre LIKE '%?%' OR Genre LIKE '?%' OR Genre LIKE '%?'");
+
+
+
+// +	"Id LIKE %?% OR Id LIKE ?% OR Id LIKE %? OR"
+// "NuberOfMembers LIKE %?% OR NuberOfMembers  LIKE ?% OR NuberOfMembers  LIKE %? OR"
 
 
 	}
@@ -249,6 +260,38 @@ public int deleteAll() {
 	} catch (SQLException e) {
 		throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
 	}
+}
+
+public List<Band> searchBand(String s) throws SQLException{
+
+	List<Band> Band = new LinkedList<>();
+		try {
+			searchBandSt.setString(1, s);
+			searchBandSt.setString(2, s);
+			searchBandSt.setString(3,s;
+
+			// 11 znakw zapytania opracj obrabianie stringa przed wyszukaniem.
+
+			ResultSet rs = searchBandSt.executeQuery();
+			
+			while (rs.next()) {
+				
+
+				
+
+				Band b = new Band()	;
+				b.setId(rs.getInt("Id"));
+				b.setName(rs.getString("Name"));
+				b.setGenre(rs.getString("Genre"));
+				b.setNumberOfMembers(rs.getInt("NumberOfMembers"));
+
+				Band.add(b);			
+			}
+		} catch (SQLException e) {
+			throw new IllegalStateException(e.getMessage()+"\n"+e.getStackTrace().toString());
+		}
+		return Band;
+
 }
 
 
