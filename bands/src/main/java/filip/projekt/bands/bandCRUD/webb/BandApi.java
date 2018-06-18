@@ -19,6 +19,7 @@ import java.*;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 
@@ -99,8 +100,25 @@ public class BandApi {
       
        
    }
+
+
+
+    @RequestMapping(value = "/Fill",
+   method = RequestMethod.GET,
+   
+   produces = MediaType.APPLICATION_JSON_VALUE )
+   public void fill(){
+       
+       Random r = new Random();
+  for (int i = 0; i<100; i++) {
+    Band b = new Band( "Zespół" + r.nextInt(100),"Gatunek" + r.nextInt(100), r.nextInt(100));
+    repo.add(b);
+
+   }
+
    
    
 
     
+}
 }
