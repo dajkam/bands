@@ -1,0 +1,257 @@
+<!-- 
+Zaglądanie do źródła może torszkę pomóc, 
+ale ważniejsze jest zbadanie czy strona poprawnie wyświetla się użytkownikowi :)
+-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+
+	<style type="text/css">
+		body {
+			font-family: Roboto, Arial, Sans-Serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin:0;
+			padding: 0;
+			background: linear-gradient(0deg, #689F38 0%, #8BC34A 100%);
+			font-size: 16px;
+			min-width: 320px;
+		}
+		form {
+			padding: 1em 1.25em;
+			/*border:solid 1px;*/
+			display: inline-block;
+			border-radius: 2px;
+    		background-color: #fff;
+    		width: 30em;
+    		box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);   			   		
+		}
+		 h1 {
+			font-size: 2em;
+			margin: 0.2em 0em 1.5em 0em;
+			font-weight: 100;
+			opacity: 0.62;
+		}
+
+		p {
+			margin: 0 0 0.5em 0;
+			position: relative;
+			display: flex;
+			align-items: center;
+
+		}
+
+
+
+		.icon {
+			/*height:  4.2em;*/
+			filter: grayscale(1) contrast(0.1);
+		}
+
+		
+
+		button {
+			width: 100%;
+		    height: 4em;
+		    background:#33691E;
+		    border: none;
+		    border-radius: 2px;		   
+		    color: #fff;
+		    text-transform: uppercase;
+		    font-weight: 600;
+		    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2);
+		}
+
+		button:hover {
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+			transform: box-shadow 0.1s;
+		}
+
+
+		a {
+			color: #666;
+			text-decoration: none;
+			transition: all 0.25s;
+			font-size: 0.85em;
+		}
+		a:hover {
+			color: #Fff;
+			text-decoration: underline;
+		}
+
+		input[type="radio"] {
+			width: auto;
+		}
+
+
+
+		/* form starting stylings ------------------------------- */
+		.group 			  { 
+		  position:relative; 
+		  width: 100%;
+		  margin-left: 0.25em;		
+  		  /*margin-bottom:45px;*/
+		}
+		input 				{
+		  font-size:18px;
+		  padding:10px 10px 10px 5px;
+		  display:block;
+		  width: calc( 100% - 20px);
+		  border:none;
+		  border-bottom:1px solid #9E9E9E;
+		}
+		input:focus 		{ outline:none; }
+
+		/* LABEL ======================================= */
+		label 				 {
+		  color:#999; 
+		  font-size:18px;
+		  font-weight:normal;
+		  position:absolute;
+		  pointer-events:none;
+		  left:5px;
+		  top:10px;
+		  transition:0.2s ease all; 
+		  -moz-transition:0.2s ease all; 
+		  -webkit-transition:0.2s ease all;
+		}
+
+		/* active state */
+		input:focus ~ label, input:valid ~ label 		{
+		  top:-20px;
+		  font-size:14px;
+		  color:#8BC34A;
+		}
+
+		/* BOTTOM BARS ================================= */
+		.bar 	{ position:relative; display:block; width:100%; }
+		.bar:before, .bar:after 	{
+		  content:'';
+		  height:2px; 
+		  width:0;
+		  bottom:0px; 
+		  position:absolute;
+		  background:#FF9800; 
+		  transition:0.2s ease all; 
+		  -moz-transition:0.2s ease all; 
+		  -webkit-transition:0.2s ease all;
+		}
+		.bar:before {
+		  left:50%;
+		}
+		.bar:after {
+		  right:50%; 
+		}
+
+		/* active state */
+		input:focus ~ .bar:before, input:focus ~ .bar:after {
+		  width:50%;
+		}
+
+		/* HIGHLIGHTER ================================== */
+		.highlight {
+		  position:absolute;
+		  height:60%; 
+		  width:100px; 
+		  top:25%; 
+		  left:0;
+		  pointer-events:none;
+		  opacity:0.5;
+		}
+
+		/* active state */
+		input:focus ~ .highlight {
+		  -webkit-animation:inputHighlighter 0.3s ease;
+		  -moz-animation:inputHighlighter 0.3s ease;
+		  animation:inputHighlighter 0.3s ease;
+		}
+
+		/* ANIMATIONS ================ */
+		@-webkit-keyframes inputHighlighter {
+			from { background:#5264AE; }
+		  to 	{ width:0; background:transparent; }
+		}
+		@-moz-keyframes inputHighlighter {
+			from { background:#5264AE; }
+		  to 	{ width:0; background:transparent; }
+		}
+		@keyframes inputHighlighter {
+			from { background:#5264AE; }
+		  to 	{ width:0; background:transparent; }
+		}
+
+
+
+		
+ 
+
+		/*- ---------------------*/
+
+		@media screen and (max-width: 600px) {
+			button {
+			    margin-top: 2em;
+    			position: absolute;
+    			width: 100%;
+			}
+
+			h1 {
+				font-size: 1.5em;
+
+			}
+
+
+			form {
+				width: 100%;
+				margin:1em;
+			}
+			p {
+				padding-bottom: 0.25em;
+			}
+			.icon {
+				display: none;
+			}
+			@supports (-moz-animation-name:none) {
+				form p:nth-of-type(1) {
+					margin-bottom: 0px !important;
+				}
+			}
+		}
+	</style>
+	
+</head>
+
+
+
+
+<body>
+
+<form>
+	<h1>Logowanie</h1>
+	<p style="margin-bottom: 35px" ><span class="icon" id="log" title="login">&#128274;</span>
+	 <span class="group">      
+      <input type="text" maxlength="8" required tabindex="2">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>email</label>
+    </span></p>
+	<p><span class="icon" id="chas" title="password">&#x1f464;</span>
+	 <span class="group">      
+      <input type="text"  required tabindex="1">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>chasło</label>
+	</p>
+	<p style="margin-top:1em;padding-left: 1em"><input type="radio" name="save" tabindex="0"><small>Zapamiętaj mnie</small></p>
+	<p style="margin-top:2em"> <button><a href="aflog.html">Zaloguj</a></button></p>
+	<p><a href="#">Nie pamiętam hasła</a></p>
+
+
+</form>	
+
+	
+</body>
+</html>
