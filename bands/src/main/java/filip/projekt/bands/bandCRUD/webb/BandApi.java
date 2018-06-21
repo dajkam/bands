@@ -114,11 +114,52 @@ public class BandApi {
     Band b = new Band( "Zespół" + r.nextInt(100),"Gatunek" + r.nextInt(100), r.nextInt(100));
     repo.add(b);
 
-   }
+   }}
 
+   @RequestMapping(value = "/Fill2",
+   method = RequestMethod.GET,
    
+   produces = MediaType.APPLICATION_JSON_VALUE )
+   public void fill2(){
+       
+    Band motorhead = new Band( "Motorhead","Rock And Roll",3);
+    Band metallica = new Band( "Metallica","Metal",4);
+    Band volbeat = new Band( "Volbeat","Groove Metal",5);
+    Band archenemy = new Band( "ARCH ENEMY","melodic death metal",5);
+    Band amonamarth = new Band( "amon amatrh","viking ",6);
+    repo.add(motorhead);
+    repo.add(metallica);
+    repo.add(volbeat);
+    repo.add(archenemy);
+    repo.add(amonamarth);
+ 
    
-
+} 
+     @RequestMapping(value = "/Search",
+    method = RequestMethod.GET,
+    produces = MediaType.APPLICATION_JSON_VALUE
+) 
+    @ResponseBody
+   public List<Band> search(@RequestParam(value = "szukane", required = true)String s) throws SQLException {
+        
+    List <Band> bands = new LinkedList<Band>(); 
+       for (Band b : repo.searchBand(s)) {
+           if (s == null) {
+               bands.add(b);
+               
+           } else if(b.getName().contains(s)) {
+               bands.add(b);
+               
+           }
+    
+    
+    
+   
     
 }
+	return bands;
+
+
+}
+
 }
