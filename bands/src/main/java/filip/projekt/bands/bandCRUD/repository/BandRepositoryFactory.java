@@ -327,6 +327,47 @@ public List<Band> searchBand(String s) throws SQLException{
 		return Band;
 
 }	
+
+	public List<Band>  szukajBand(String s) {
+		List<Band> Band = this.getAll();
+		List<Band> Wynik = new LinkedList<>();
+
+		s.replaceAll(" ", "");
+
+		Integer y = searchFormater(s);
+
+			int x=-1;
+
+
+			if (! (y ==null)) {
+
+				 x = y;	
+			}
+			for (Band b : Band) {
+				if (b.NameS==s) {
+					Wynik.add(b);
+					
+				}
+				if (b.getGenre().replaceAll(" ", "")==s) {
+					Wynik.add(b);
+					
+				}
+				if (b.getId()==x) {
+					Wynik.add(b);
+					
+				}
+				if (b.getNumberOfMembers()==x) {
+					Wynik.add(b);
+					
+				}
+				
+			}
+
+		return Wynik;
+		
+	}
+
+
 	public Integer searchFormater(String s) {
 
 
