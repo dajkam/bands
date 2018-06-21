@@ -142,21 +142,28 @@ public class BandApi {
     @ResponseBody
    public List<Band> search(@RequestParam(value = "szukane", required = true)String s) throws SQLException {
         
-    List <Band> bands = new LinkedList<Band>(); 
-       for (Band b : repo.searchBand(s)) {
-           if (s == null) {
-               bands.add(b);
-               
-           } else if(b.getName().contains(s)) {
-               bands.add(b);
-               
-           }
+    List <Band> bands = repo.searchBand(s); 
+       
     
     
     
    
     
-}
+
+	return bands;
+   }
+
+
+
+@RequestMapping(value = "/Szukaj",
+    method = RequestMethod.GET,
+    produces = MediaType.APPLICATION_JSON_VALUE
+) 
+    @ResponseBody
+   public List<Band> szukaj(@RequestParam(value = "szukaj", required = true)String s)  {
+        
+    List <Band> bands = repo.szukajBand(s);
+    
 	return bands;
 
 
