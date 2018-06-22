@@ -3,7 +3,6 @@ package filip.projekt.bands.bandCRUD.domain;
 public class Band {
   private int Id;
 	private String Name;
-	public String NameS;
   private String Genre;
   private  int NumberOfMembers;
 
@@ -66,7 +65,7 @@ public class Band {
 
 	public void setName(String Name) {
 		this.Name = Name;
-		this.NameS = Name.replaceAll(" ", "");
+		
 	}
 
 	/**
@@ -99,7 +98,7 @@ public class Band {
 		super();
     
 		this.Name = Name;
-		this.NameS = Name.replaceAll(" ", "");
+		
 		this.Genre = Genre;
 		this.NumberOfMembers = NumberOfMembers;
 	}
