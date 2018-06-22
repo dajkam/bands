@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <BAND ID="5" NAME="Slayer" GENRE="Trash Metal" NUMBEROFMEMBERS="4"/>
-  <BAND ID="6" NAME="Amon Amarth" GENRE="Viking Metal" NUMBEROFMEMBERS="6"/>
+   <BAND  NAME="Motorhead" GENRE="Rock And Roll" NUMBEROFMEMBERS="3"/>
+  <BAND  NAME="Metallica" GENRE="Metal" NUMBEROFMEMBERS="4"/>
+  <BAND  NAME="Def Leppard" GENRE="Glam Metal" NUMBEROFMEMBERS="5"/>
+  <BAND  NAME="Pantera" GENRE="Groove Metal" NUMBEROFMEMBERS="4"/>
 </dataset>

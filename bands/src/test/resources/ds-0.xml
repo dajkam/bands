@@ -3,6 +3,5 @@
   
   <BAND  NAME="Motorhead" GENRE="Rock And Roll" NUMBEROFMEMBERS="3"/>
   <BAND  NAME="Metallica" GENRE="Metal" NUMBEROFMEMBERS="4"/>
-  <BAND  NAME="Pantera" GENRE="Pantera" NUMBEROFMEMBERS="4"/>
   <BAND  NAME="Def Leppard" GENRE="Glam Metal" NUMBEROFMEMBERS="5"/>
 </dataset>

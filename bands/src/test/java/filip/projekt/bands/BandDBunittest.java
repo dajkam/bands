@@ -63,20 +63,20 @@ public class BandDBunittest extends DBTestCase {
 
     @Test
     public void doNothing() {
-      // assertEquals(4, repo.getAll().size());
+       assertEquals(3, repo.getAll().size());
     }
 
     @Test
     public void checkAdding() throws Exception {
     
         Band band = new Band();
-          /*
+          
         band.setName("Pantera");
         band.setGenre("Groove Metal");
         band.setNumberOfMembers(4);
 
         assertEquals(1, repo.add(band));
-        */
+        
         
 
         // Data verification
@@ -86,11 +86,12 @@ public class BandDBunittest extends DBTestCase {
         IDataSet dbDataSet = this.getConnection().createDataSet();
         ITable actualTable = dbDataSet.getTable("Band");
         ITable filteredTable = DefaultColumnFilter.excludedColumnsTable(actualTable, new String[] { "ID" });
-        IDataSet expectedDataSet = getDataSet("ds-0.xml");
+        IDataSet expectedDataSet = getDataSet("ds-2.xml");
         ITable expectedTable = expectedDataSet.getTable("Band");
         // (posortowane? proszę bardzo:) // Assertion.assertEquals(new SortedTable(expectedTable),
         // (posortowane? proszę bardzo:) //     new SortedTable(filteredTable, expectedTable.getTableMetaData()));
       // repo.deleteFromBand(band);
+      assertEquals(4, repo.getAll().size());
         Assertion.assertEquals(expectedTable , filteredTable);
                                      // wyczyszczenie
     }
