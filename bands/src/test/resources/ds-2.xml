@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <BAND ID="5" NAME="Slayer" GENRE="Trash Metal" NUMBEROFMEMBERS="4"/>
+  <BAND ID="6" NAME="Amon Amarth" GENRE="Viking Metal" NUMBEROFMEMBERS="6"/>
+</dataset>
