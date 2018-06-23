@@ -21,6 +21,7 @@ public interface BandRepository {
   public int deleteAll();
 public List<Band>  searchBand(String s) throws SQLException;
 public List<Band> szukajBand(String s);
+public int deleteFromBandByName(Band band);
   
 
 }

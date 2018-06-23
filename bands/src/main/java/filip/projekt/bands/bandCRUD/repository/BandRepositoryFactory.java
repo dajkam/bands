@@ -68,7 +68,7 @@ public class BandRepositoryFactory implements BandRepository{
 		addSt = con.prepareStatement("INSERT INTO Band(Name,Genre,NumberOfMembers)VALUES(?,?,?)",Statement.RETURN_GENERATED_KEYS);
 		getAllSt = con.prepareStatement("SELECT * FROM Band ORDER BY Id");
 		selectFromBandSt = con.prepareStatement("SELECT * FROM Band WHERE Id=?");
-		deleteFromBandSt = con.prepareStatement("DELETE FROM Band WHERE Id=?");
+		deleteFromBandSt = con.prepareStatement("DELETE FROM Band WHERE Name=?");
 		updateBandSt = con.prepareStatement("UPDATE Band SET Name=?,Genre=?,NumberOfMembers=?  WHERE Id=?");
 		deleteAllSt = con.prepareStatement("DELETE  FROM Band;");
 
@@ -220,6 +220,23 @@ public class BandRepositoryFactory implements BandRepository{
 
 		}
 	}
+
+
+	
+	public int deleteFromBandByName(Band b) {
+		try {
+			deleteFromBandSt.setString(1, b.getName());
+			return deleteFromBandSt.executeUpdate();
+		} catch (SQLException e) {
+			throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
+
+		}
+	}
+
+	public int deleteFromBandById(Band b) {
+		return this.deleteFromBand(b);
+	}
+
 
 	
 
