@@ -23,7 +23,7 @@ import org.junit.Test;
 import filip.projekt.bands.bandCRUD.domain.Band;
 import filip.projekt.bands.bandCRUD.repository.BandRepository;
 import filip.projekt.bands.bandCRUD.repository.BandRepositoryFactory;
-@Ignore
+//@Ignore
 public class RepositoryTest {
 
   public static String url = "jdbc:hsqldb:hsql://localhost/workdb";
@@ -125,7 +125,7 @@ public void clear() throws SQLException{
     
    
   
-  @Test (expected = SQLException.class)
+  //@Test (expected = SQLException.class)
   public void checkDeleteGood() throws SQLException{
     Band b = l.get(5);
     l.remove(b);
@@ -139,7 +139,7 @@ public void clear() throws SQLException{
   }  
   
 
-@Test(expected = SQLException.class)
+//@Test(expected = SQLException.class)
   public void checkDeleteBad() throws SQLException{
    
     Band b = new Band();
