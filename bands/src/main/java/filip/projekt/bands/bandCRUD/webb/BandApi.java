@@ -162,47 +162,27 @@ public class BandApi {
        
     
     
-    
-   
-    
 
 	return bands;
    }
 
 
 
-@RequestMapping(value = "/Szukaj",
-    method = RequestMethod.GET,
-    produces = MediaType.APPLICATION_JSON_VALUE
-) 
+@RequestMapping(value = "/Szukaj") 
     @ResponseBody
-   public List<Band> szukaj(@RequestParam(value = "szukaj", required = true)String s)  {
+   public String szukaj() throws IOException {
         
-    List <Band> bands = repo.szukajBand(s);
-    
-	return bands;
+    String name = new Object(){}.getClass().getEnclosingMethod().getName(); // pobieranie nazwy metody,która się aktualnie wykonuje
+        
+       String html = graficzny(name);
+       
+     
+        return html;
 
 
 }
 
-public String loadStringFromFile(String html) {
 
-        Properties prop = new Properties();
-        try {
-            prop.load(new FileInputStream(html));
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-	e.printStackTrace();
-}
-String strona = prop.getProperty("html");
-
-
-    return strona;
-    
-}
 
 
 public String graficzny (String name) throws IOException {
