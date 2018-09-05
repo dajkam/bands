@@ -16,10 +16,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import java.util.Properties;
 
 @RestController
 
@@ -30,9 +40,15 @@ public class BandApi {
     BandRepository repo;
 
     @RequestMapping("/")
-    public String index() {
-        return "raz raz 606 słychać mnie?";
+    public String index() throws IOException {
+       // return "raz raz 606 słychać mnie?";
+       String name = new Object(){}.getClass().getEnclosingMethod().getName(); // pobieranie nazwy metody,która się aktualnie wykonuje
         
+       String html = graficzny(name);
+       
+     
+        return html;
+      
     }
     @RequestMapping(value = "/Band/{Id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -167,6 +183,57 @@ public class BandApi {
 	return bands;
 
 
+}
+
+public String loadStringFromFile(String html) {
+
+        Properties prop = new Properties();
+        try {
+            prop.load(new FileInputStream(html));
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+	e.printStackTrace();
+}
+String strona = prop.getProperty("html");
+
+
+    return strona;
+    
+}
+
+
+public String graficzny (String name) throws IOException {
+    String s = "/home/filip/Pulpit/tau/wrzesien/bands/bands/src/main/java/filip/projekt/bands/bandCRUD/webb/";
+
+     // String name = new Object(){}.getClass().getEnclosingMethod().getName(); // pobieranie nazwy metody,która się aktualnie wykonuje
+
+      s=s+name; 
+
+      s=s+".html";
+
+      String html2 = readFile(s, StandardCharsets.UTF_8);
+
+
+      StringBuilder htmlBuilder = new StringBuilder();
+
+        htmlBuilder.append(html2);
+
+        String html = htmlBuilder.toString();
+
+            return html;
+    
+}
+
+
+
+static String readFile(String path, Charset encoding) 
+  throws IOException 
+{
+  byte[] encoded = Files.readAllBytes(Paths.get(path));
+  return new String(encoded, encoding);
 }
 
 }
