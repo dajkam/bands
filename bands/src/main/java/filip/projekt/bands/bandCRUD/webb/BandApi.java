@@ -29,6 +29,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import javax.ws.rs.FormParam;
+import javax.ws.rs.Path;
+
 import java.util.Properties;
 
 @RestController
@@ -155,13 +158,13 @@ public class BandApi {
     method = RequestMethod.GET,
     produces = MediaType.APPLICATION_JSON_VALUE
 ) 
+    
     @ResponseBody
-   public List<Band> search(@RequestParam(value = "szukane", required = true)String s) throws SQLException {
-        
+   public List<Band> search(@RequestParam(value = "szukane") String s) throws SQLException {
+    
+
     List <Band> bands = repo.searchBand(s); 
        
-    
-    
 
 	return bands;
    }
