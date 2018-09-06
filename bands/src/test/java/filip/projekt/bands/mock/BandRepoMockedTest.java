@@ -23,8 +23,9 @@ import static org.mockito.Mockito.*;
 import filip.projekt.bands.bandCRUD.domain.Band;
 import filip.projekt.bands.bandCRUD.repository.BandRepository;
 import filip.projekt.bands.bandCRUD.repository.BandRepositoryFactory;
-@Ignore
-@RunWith(MockitoJUnitRunner.class)
+//@Ignore
+//@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
 public class BandRepoMockedTest {
     BandRepository repo;
 
@@ -91,7 +92,7 @@ public class BandRepoMockedTest {
     }
 
     @Test
-   //@Ignore
+   
    //@Test(expected = NullPointerException.class)
     public void checkGetting() throws Exception {
         AbstractResultSet mockedResultSet = mock(AbstractResultSet.class);
@@ -112,8 +113,8 @@ public class BandRepoMockedTest {
         verify(mockedResultSet, times(2)).next();
     }
 
-    @Test
-   //@Test(expected = NullPointerException.class)
+   // @Test
+   @Test(expected = NullPointerException.class)
     public void checkAddingInOrder() throws Exception {
         InOrder inorder = inOrder(insertStatementMock);
         when(insertStatementMock.executeUpdate()).thenReturn(1);
@@ -126,7 +127,7 @@ public class BandRepoMockedTest {
         band.setGenre("Groove Metal");
         band.setNumberOfMembers(4);
       assertEquals(1, repo.add(band));
-       // repo.add(band);
+        repo.add(band);
         inorder.verify(insertStatementMock, times(1)).setString(1, "Pantera");
         inorder.verify(insertStatementMock, times(1)).setString(2, "Groove Metal");
         inorder.verify(insertStatementMock, times(1)).setInt(3, 4);

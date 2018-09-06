@@ -219,4 +219,22 @@ static String readFile(String path, Charset encoding)
   return new String(encoded, encoding);
 }
 
+
+
+public void fill2(char a){
+       
+    Band motorhead = new Band( "Motorhead","Rock And Roll",3);
+    Band metallica = new Band( "Metallica","Metal",4);
+    Band volbeat = new Band( "Volbeat","Groove Metal",5);
+    Band archenemy = new Band( "ARCH ENEMY","melodic death metal",5);
+    Band amonamarth = new Band( "amon amatrh","viking ",6);
+    repo.add(motorhead);
+    repo.add(metallica);
+    repo.add(volbeat);
+    repo.add(archenemy);
+    repo.add(amonamarth);
+ 
+   
+} 
+
 }
