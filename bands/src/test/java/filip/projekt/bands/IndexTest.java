@@ -1,7 +1,7 @@
 /**
  zaliczenie selenium
  */
-/*
+
 package filip.projekt.bands;
 
 
@@ -20,6 +20,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -35,41 +36,76 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 
+import filip.projekt.bands.bandCRUD.webb.BandApi;
+
 public class IndexTest {
     private WebDriver driver; 
     private String startURL;
+    private String startURL0;
     private boolean acceptNextAlert = true; 
     private StringBuffer verificationErrors = new StringBuffer();
+
+
+    @BeforeClass
+    public static void init() {
+
+        //BandApi api = new BandApi();
+       // api.fill2();
+        
+    }
 
     @Before
     public void seting() throws Exception 
     {
+
+       // String[] cmd = new String[]{"/bin/sh", "/home/filip/Pulpit/tau/wrzesien/bands/bands/scripts/skrypt.sh"};
+      //  Process pr = Runtime.getRuntime().exec(cmd);
+
+
         driver = new ChromeDriver();
        
       // startURL ="file:///home/filip/Pulpit/tau/lab1/bands-rest/bands/bands/src/test/java/filip/projekt/bands/index/index.html";
      // startURL = "index/index.html";
-     startURL = "http://szuflandia.pjwstk.edu.pl/~s13033/str/";
-       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        
+
+     startURL = "http://localhost:8080/api/Szukaj";
+
+     startURL0 = "http://localhost:8080/api/Fill2";
+
+    
+       
         
     }
 
     @Test
     public void test() throws Exception {
+       driver.get(startURL0);
+       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
        driver.get(startURL);
+       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
        // driver.findElement(By.id("log")).clear();
        // driver.findElement(By.id("chas")).clear();
-       driver.findElement(By.id("log")).click();
-        driver.findElement(By.id("log")).sendKeys("sopotfilip@gmail.com");
-        driver.findElement(By.id("chas")).click();
-        driver.findElement(By.id("chas")).sendKeys("123fil");
-        driver.findElement(By.tagName("small")).click();
-        driver.findElement(By.cssSelector("button")).click();
+       //driver.findElement(By.id("log")).click();
+       // driver.findElement(By.id("log")).sendKeys("sopotfilip@gmail.com");
+       // driver.findElement(By.id("chas")).click();
+       // driver.findElement(By.id("chas")).sendKeys("123fil");
+        //driver.findElement(By.tagName("small")).click();
+       // driver.findElement(By.cssSelector("button")).click();
 
-        assertEquals("raz.jpg", driver
-            .findElement(By.tagName("img")).getText()
+
+       driver.findElement(By.id("szukane")).clear();
+
+       driver.findElement(By.id("szukane")).sendKeys("amon amatrh");
+
+       driver.findElement(By.id("button")).click();
+
+
+       // assertEquals("raz.jpg", driver
+         //   .findElement(By.tagName("img")).getText()
         
         
-        ); 
+      //  ); 
 
         File scrshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrshot, new File("obraz.png"));
@@ -86,4 +122,4 @@ public class IndexTest {
         }        
     }
     
-}*/
+}

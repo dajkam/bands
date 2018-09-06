@@ -23,7 +23,7 @@ import org.junit.Test;
 import filip.projekt.bands.bandCRUD.domain.Band;
 import filip.projekt.bands.bandCRUD.repository.BandRepository;
 import filip.projekt.bands.bandCRUD.repository.BandRepositoryFactory;
-//@Ignore
+
 public class RepositoryTest {
 
   public static String url = "jdbc:hsqldb:hsql://localhost/workdb";
