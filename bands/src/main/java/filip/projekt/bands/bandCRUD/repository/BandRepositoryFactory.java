@@ -286,6 +286,7 @@ public List<Band> searchBand(String s) throws SQLException{
 
 	List<Band> Band = new LinkedList<>();
 	s.replaceAll(" ", "");
+	s.toLowerCase();
 		try {
 			
 
