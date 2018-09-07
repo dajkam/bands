@@ -65,7 +65,9 @@ public class IndexTest {
        // String[] cmd = new String[]{"/bin/sh", "/home/filip/Pulpit/tau/wrzesien/bands/bands/scripts/skrypt.sh"};
       //  Process pr = Runtime.getRuntime().exec(cmd);
 
-
+        System.setProperty("webdriver.chrome.driver", "\\var\\www\\Jar\\chromedriver");
+     
+       
         driver = new ChromeDriver();
        
       // startURL ="file:///home/filip/Pulpit/tau/lab1/bands-rest/bands/bands/src/test/java/filip/projekt/bands/index/index.html";
