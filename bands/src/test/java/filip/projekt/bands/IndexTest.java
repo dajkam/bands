@@ -42,6 +42,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import filip.projekt.bands.bandCRUD.webb.BandApi;
 
+@Ignore
 public class IndexTest {
     private WebDriver driver; 
     private String startURL;
@@ -65,7 +66,7 @@ public class IndexTest {
        // String[] cmd = new String[]{"/bin/sh", "/home/filip/Pulpit/tau/wrzesien/bands/bands/scripts/skrypt.sh"};
       //  Process pr = Runtime.getRuntime().exec(cmd);
 
-        System.setProperty("webdriver.chrome.driver", "\\var\\www\\Jar\\chromedriver");
+        
      
        
         driver = new ChromeDriver();
