@@ -1,0 +1,6 @@
+1. selenium -> weryfikacja zajścia akcji kliknięcia. 
+2. jmeter test -> sprawdzanie funkcjonalności serwisu. 
+3. sprawdzić testy jednostkowe do CRUDA 
+
+uwaga ! 
+w jakich kolwiek testach najważniejsze są asercje to one sprawiają że test jest testem.

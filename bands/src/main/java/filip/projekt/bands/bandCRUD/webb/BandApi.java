@@ -227,7 +227,7 @@ public void fill2(char a){
     Band metallica = new Band( "Metallica","Metal",4);
     Band volbeat = new Band( "Volbeat","Groove Metal",5);
     Band archenemy = new Band( "ARCH ENEMY","melodic death metal",5);
-    Band amonamarth = new Band( "amon amatrh","viking ",6);
+    Band amonamarth = new Band( "amon amarth","viking ",6);
     repo.add(motorhead);
     repo.add(metallica);
     repo.add(volbeat);

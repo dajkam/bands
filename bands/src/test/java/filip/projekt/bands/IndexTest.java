@@ -6,6 +6,7 @@ package filip.projekt.bands;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -16,6 +17,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -92,16 +96,25 @@ public class IndexTest {
        // driver.findElement(By.id("chas")).sendKeys("123fil");
         //driver.findElement(By.tagName("small")).click();
        // driver.findElement(By.cssSelector("button")).click();
+        String s = "/home/filip/Pulpit/tau/wrzesien/bands/bands/src/main/java/filip/projekt/bands/bandCRUD/webb/szukaj.html";
+       assertEquals("szukaj",this.getValue(s));
 
+       assertEquals(startURL, driver.getCurrentUrl());
 
        driver.findElement(By.id("szukane")).clear();
 
-       driver.findElement(By.id("szukane")).sendKeys("amon amatrh");
+       driver.findElement(By.id("szukane")).sendKeys("amon amarth");
 
        driver.findElement(By.id("button")).click();
 
+       String endURL = "http://localhost:8080/api/Search?szukane=amon+amarth";
 
-       // assertEquals("raz.jpg", driver
+       assertEquals(endURL, driver.getCurrentUrl());
+
+       assertNotEquals(startURL0, driver.getCurrentUrl());
+
+
+      // assertEquals("raz.jpg", driver)
          //   .findElement(By.tagName("img")).getText()
         
         
@@ -109,8 +122,23 @@ public class IndexTest {
 
         File scrshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrshot, new File("obraz.png"));
+
+    //assertEquals("szukaj",);));
         
     }
+
+    public String getValue(String s) throws IOException {
+
+        File file = new File(s);
+        Document document = Jsoup.parse(file, "UTF-8");
+        Element something = document.select("input[type=submit]").last();
+        String value = something.val();
+        return value;
+// ...
+
+        
+    }
+
 
     @After
     public void shut() throws Exception {
